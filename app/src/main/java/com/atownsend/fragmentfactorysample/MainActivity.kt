@@ -50,9 +50,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector,
           ).commit()
     }
 
-    supportFragmentManager.addOnBackStackChangedListener {
-      supportActionBar!!.setDisplayHomeAsUpEnabled(supportFragmentManager.backStackEntryCount > 0)
-    }
+    supportFragmentManager.addOnBackStackChangedListener { handleUpNav() }
+    handleUpNav()
+  }
+
+  private fun handleUpNav() {
+    supportActionBar!!.setDisplayHomeAsUpEnabled(supportFragmentManager.backStackEntryCount > 0)
   }
 
   override fun onOptionsItemSelected(item: MenuItem?): Boolean {
