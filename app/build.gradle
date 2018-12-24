@@ -15,7 +15,7 @@ android {
     targetSdkVersion 28
     versionCode 1
     versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
     release {
@@ -30,15 +30,23 @@ dependencies {
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   testImplementation "junit:junit:4.12"
 
-  implementation "androidx.core:core:1.0.0"
-  implementation "androidx.appcompat:appcompat:1.0.1"
-  implementation "androidx.fragment:fragment:1.1.0-alpha01"
-  implementation "androidx.fragment:fragment-ktx:1.0.0"
+  implementation "androidx.core:core:1.0.1"
+  implementation "androidx.appcompat:appcompat:1.0.2"
+  implementation "androidx.fragment:fragment:1.1.0-alpha02"
+  implementation "androidx.fragment:fragment-ktx:1.1.0-alpha02"
 
   kapt "com.android.tools.build.jetifier:jetifier-core:1.0.0-beta02"
   annotationProcessor "com.android.tools.build.jetifier:jetifier-core:1.0.0-beta02"
 
   implementation "com.jakewharton.timber:timber:4.7.1"
+
+  androidTestImplementation "androidx.test:runner:1.1.1"
+  androidTestImplementation "androidx.test.ext:junit:1.1.0"
+  androidTestImplementation "androidx.test.espresso:espresso-core:3.1.1"
+
+  // setup fragment-testing dependencies
+  debugImplementation 'androidx.test:core:1.1.0'
+  debugImplementation 'androidx.fragment:fragment-testing:1.1.0-alpha02'
 
   // dagger
   kapt "com.google.dagger:dagger-compiler:2.19"
